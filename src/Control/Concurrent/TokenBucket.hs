@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 module Control.Concurrent.TokenBucket
     ( TokenBucket
     , newTokenBucket
@@ -6,13 +8,13 @@ module Control.Concurrent.TokenBucket
     , tokenBucketWait
     ) where
 
--- import Utils
-
 import Control.Concurrent
 import Control.Exception
 import Control.Monad
 import Data.IORef
+#if !defined(USE_CBITS)
 import Data.Time.Clock.POSIX (getPOSIXTime)
+#endif
 import Data.Word (Word64)
 
 newtype TokenBucket = TB (IORef TBData)
@@ -25,8 +27,12 @@ type PosixTimeUsecs = Word64
 getTBData :: TokenBucket -> IO TBData
 getTBData (TB lbd) = readIORef lbd
 
+#if defined(USE_CBITS)
+foreign import ccall "hs_token_bucket_get_posix_time_usecs" getPosixTimeUsecs :: IO PosixTimeUsecs
+#else
 getPosixTimeUsecs :: IO PosixTimeUsecs
 getPosixTimeUsecs = fmap (floor . (*1e6)) getPOSIXTime
+#endif
 
 newTokenBucket :: IO TokenBucket
 newTokenBucket = do

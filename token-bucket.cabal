@@ -14,8 +14,18 @@ description:
   This implementation is heavily inspired by the one described in
   <http://ksdlck.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
 
+flag use-cbits
+  description: Use optimized getPOSIXTime implementation (faster by roughly one order of magnitude)
+  manual: True
+  default: True
+
 library
   default-language:    Haskell2010
-  build-depends:       base >=4.7 && <4.8, time >=1.4 && <1.5
+  build-depends:       base >=4.7 && <4.8
   hs-source-dirs:      src
+  if flag(use-cbits)
+    cpp-options:       -DUSE_CBITS
+    c-sources:         cbits/get_posix_time.c
+  else
+    build-depends:     time >=1.4 && <1.5
   exposed-modules:     Control.Concurrent.TokenBucket
