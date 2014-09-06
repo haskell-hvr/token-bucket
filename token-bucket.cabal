@@ -1,14 +1,14 @@
 name:                token-bucket
 version:             0.1.0.0
 synopsis:            Rate limiter using lazy bucket algorithm
-homepage:            https://github.com/hvr
+homepage:            https://github.com/hvr/token-bucket
+bug-reports:         https://github.com/hvr/token-bucket/issues
 license:             GPL-3
 license-file:        LICENSE
 author:              Herbert Valerio Riedel
 maintainer:          hvr@gnu.org
 category:            Concurrency
 build-type:          Simple
--- extra-source-files:
 cabal-version:       >=1.10
 description:
   This implementation is heavily inspired by the one described in
