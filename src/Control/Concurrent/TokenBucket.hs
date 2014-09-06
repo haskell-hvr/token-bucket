@@ -70,7 +70,8 @@ type PosixTimeUsecs = Word64
 -- getTBData (TB lbd) = readIORef lbd
 
 #if defined(USE_CBITS)
-foreign import ccall "hs_token_bucket_get_posix_time_usecs" getPosixTimeUsecs :: IO PosixTimeUsecs
+foreign import ccall unsafe "hs_token_bucket_get_posix_time_usecs"
+    getPosixTimeUsecs :: IO PosixTimeUsecs
 #else
 getPosixTimeUsecs :: IO PosixTimeUsecs
 getPosixTimeUsecs = fmap (floor . (*1e6)) getPOSIXTime
