@@ -12,7 +12,7 @@ build-type:          Simple
 cabal-version:       >=1.10
 description:
   This implementation is heavily inspired by the one described in
-  <http://ksdlck.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
+  <http://ksdlck.tumblr.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
 
 extra-source-files:    changelog.md
 

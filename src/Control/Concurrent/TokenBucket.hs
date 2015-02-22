@@ -1,7 +1,7 @@
 {-# LANGUAGE CPP #-}
 
 -- | This module provides rate-limiting facilities built on top of the lazy bucket algorithm heavily inspired by
--- <http://ksdlck.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
+-- <http://ksdlck.tumblr.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
 --
 -- See also Wikipedia's <http://en.wikipedia.org/wiki/Token_bucket Token Bucket> article for general information about token bucket algorithms and their properties.
 module Control.Concurrent.TokenBucket
