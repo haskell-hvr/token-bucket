@@ -14,6 +14,14 @@ description:
   This implementation is heavily inspired by the one described in
   <http://ksdlck.com/post/17418037348/rate-limiting-at-webscale-lazy-leaky-buckets "Rate Limiting at Webscale: Lazy Leaky Buckets">
 
+tested-with: GHC==8.0.2
+           , GHC==8.0.1
+           , GHC==7.10.3
+           , GHC==7.10.2
+           , GHC==7.8.4
+           , GHC==7.8.3
+           , GHC==7.6.3
+
 extra-source-files:    changelog.md
 
 source-repository head
